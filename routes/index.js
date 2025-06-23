@@ -301,7 +301,9 @@ router.post('/signupapi', (req, res) => {
 const jwt = require('jsonwebtoken');
 const { token } = require('morgan');
 const { render } = require('../app');
-const JWT_SECRET = 'abdc1234efgh5678ijkl';
+require('dotenv').config(); // Add this at the top if not already
+const JWT_SECRET = process.env.JWT_SECRET;
+
 
 
 

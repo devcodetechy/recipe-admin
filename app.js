@@ -11,6 +11,8 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+require('dotenv').config();
+
 const expressLayouts = require('express-ejs-layouts');
 const Recipedb = require('./database/Recipedb')
 
