@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <%- include('./Navbar') %>
+    <div class="page-background">
+      <div>
+        <h1 class="text-center ml-5 mt-3 shadow-heading">Users List</h1><br>
+        <div class="">
+        <table class="table table-bordered align-middle text-center">
+          <thead class="table-dark">
+            <tr>
+                <th>User-Name</th>
+                <th>User-Email</th>
+                <th>Action</th>
+            </tr>
+          </thead>
+
+          <% users.forEach(user => { %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td>
+                <form action="/block-user/<%= user._id %>" method="POST" style="display:inline;">
+                  <% if (user.isBlocked) { %>
+                    <button class="button btn btn-danger" type="submit">Unblock</button>
+                  <% } else { %>
+                    <button class="button btn btn-primary" type="submit">Block</button>
+                  <% } %>
+                </form>
+                <a href="/user_recipe/<%= user._id %>">
+                  <button class="button btn btn-secondary ml-3">View</button>
+                </a>
+              </td>
+            </tr>
+          <% }) %>
+          
+        </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

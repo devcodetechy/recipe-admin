@@ -1,0 +1,35 @@
+<h1><%= title %></h1>
+
+    <%- include('./Navbar') %>
+
+    <div class="page-background">
+        <div class="card shadow-lg p-4" style="max-width: 800px; margin: auto; background-color: white;">
+
+            <% if (recipes.length > 0) { %>
+                <p><strong>Recipes Created by:</strong> <%= recipes[0].Createdby.name %></p>
+              <% } else { %>
+                <p><strong>No recipes found for this user.</strong></p>
+              <% } %>
+            <table class="table table-bordered align-middle text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Recipe Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% recipes.forEach(Recipedata => { %>
+                          <tr>
+                            <td><%= Recipedata.title %></td>
+                            <td>
+                                <a href="/Recipe-details/<%= Recipedata._id %>" class="btn btn-primary">View</a>
+                            </td>                                  
+                          </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            <a href="/Users-List" class="btn btn-secondary mt-4 d-block mx-auto" style="width: fit-content;">Back to List</a>
+        </div>
+    </div>
+
+</html>

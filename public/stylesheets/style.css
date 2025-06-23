@@ -1,0 +1,87 @@
+body {
+  padding: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+table {
+  background-color: #f9fcfd;
+  border-style :groove;
+  box-sizing: content-box;
+  border: radius 50px;
+  border-color: rgb(31, 17, 17);
+  border-width: 200px;
+  box-shadow: #256883;
+}
+
+img {
+  width: 200px;
+
+}
+
+.page-background {
+  background-image: url('https://t3.ftcdn.net/jpg/01/79/59/92/240_F_179599293_7mePKnajSM4bggDa8NkKpcAHKl3pow2l.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* full height */
+}
+
+.login-form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+
+.container {
+  text-align: center;
+  background-color: white;
+  width: 100px;
+  height: 370px;
+}
+
+
+.button {
+        background-color: blue;
+        color: white;
+        padding: '10px 20px';
+        border: 'none';
+        border-Radius: '5px';
+        transition: 'background-color 0.3s ease',
+}
+
+.button:hover {
+  background-color: darkblue;
+}
+
+.shadow-heading {
+  color: rgb(125, 91, 91);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+
+.rounded-table {
+  border-collapse: separate; /* Important for border-radius to work */
+  border-spacing: 0;          /* Optional: removes spacing between cells */
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  overflow: hidden;           /* Ensures inner content respects rounded corners */
+}

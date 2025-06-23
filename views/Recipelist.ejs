@@ -1,0 +1,39 @@
+<h1><%= title %></h1>
+
+        <%- include ./Navbar %>
+        <div class="page-background">
+            <div class="">
+                <h1 class="text-center shadow-heading">Recipes List</h1><br>
+                
+                <form action="/Recipe-view" method="GET" class="my-3">
+                    <input type="search" name="search" class="form-control d-inline w-auto" placeholder="Search by title">
+                    <button type="submit" class="button btn btn-primary">Submit</button>
+                  </form>
+                                    
+                <div class="">
+                <table class="table table-bordered align-middle text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Recipe Name</th>
+                            <th>Created By</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% Users.forEach(Userdata => { %>
+                              <tr>
+                                <td><%= Userdata.title %></td>
+                                <td><%= Userdata.Createdby.name %></td>
+                                <td>
+                                    <a href="/Recipe-details/<%= Userdata._id %>" class="btn btn-primary">View</a>
+                                </td>                                  
+                              </tr>
+      <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <%- include('./Navbar') %>
+
+    <div class="page-background">
+        <div class="card shadow-lg p-4" style="max-width: 800px; margin: auto; background-color: white;">
+            <h2 class="text-center shadow-heading mb-4"><%= recipe.title %></h2>
+
+            <p><strong>Created by:</strong> <%= recipe.Createdby?.name || 'Unknown' %></p>
+            <p><strong>Ingredients:</strong> <%= recipe.ingredients %></p>
+            <p><strong>Steps:</strong> <%= recipe.steps %></p>
+            <p><strong>Cooking Time:</strong> <%= recipe.cookingtime %> minutes</p>
+            <p><strong>Difficulty Level:</strong> <%= recipe.difficultylevel %></p>
+
+            <% if (recipe.image) { %>
+                <img src="<%= recipe.image %>" alt="<%= recipe.title %> Image" class="img-fluid mt-3" style="max-height: 400px; width: 100%; object-fit: cover;">
+            <% } %>
+
+            <a href="/Recipe-view" class="btn btn-secondary mt-4 d-block mx-auto" style="width: fit-content;">Back to List</a>
+        </div>
+    </div>
+</body>
+</html>

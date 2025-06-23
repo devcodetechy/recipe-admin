@@ -1,0 +1,32 @@
+<h1><%= title %></h1>
+
+        <%- include ./Navbar %>
+        <div class="page-background">
+            <div class="">
+                <h1 class="text-center shadow-heading">Recipes List</h1><br>
+                                    
+                <div class="">
+                <table class="table table-bordered align-middle text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Recipe Name</th>
+                            <th>Created By</th>
+                            <th>views</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% Users.forEach(Userdata => { %>
+                              <tr>
+                                <td><%= Userdata.title %></td>
+                                <td><%= Userdata.Createdby.name %></td>
+                                <td><%= Userdata.views || 0 %></td>                                
+                              </tr>
+      <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            
+        </div>
+    </body>
+</html>
