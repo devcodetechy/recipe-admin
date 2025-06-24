@@ -23,6 +23,12 @@ app.set('layout', 'layouts/main-layout');
 
 
 //layout setup
+
+const cors = require("cors");
+app.use(cors({
+  origin: "*", // OR restrict it to your frontend Vercel domain
+}));
+
 app.use(expressLayouts);
 app.use(logger('dev'));
 app.use(express.json());
@@ -40,11 +46,12 @@ app.use(session({
 }));
 
 app.use(cors({
-  origin: 'http://localhost:3000', // Replace with the actual origin of the React app
-  credentials: true, // Enable if cookies or authorization headers are needed
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Specify allowed HTTP methods
-  allowedHeaders: 'Content-Type,Authorization' // Specify allowed headers
+  origin: ['https://recipesharingapp.vercel.app', 'http://localhost:3000'],
+  credentials: true,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
 
 
 app.use('/', indexRouter);
