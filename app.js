@@ -19,7 +19,7 @@ const Recipedb = require('./database/Recipedb');
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('layout', 'Layout/Main-layout');
+app.set('layout', 'Layouts/Main-layout');
 
 // ✅ Enable CORS only once
 app.use(cors({
