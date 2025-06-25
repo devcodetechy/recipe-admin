@@ -44,6 +44,12 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
+// Default title middleware
+app.use((req, res, next) => {
+  res.locals.title = '';
+  next();
+});
+
 
 // Routes
 app.use('/', indexRouter);
