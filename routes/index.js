@@ -579,7 +579,7 @@ router.post('/addnewrecipes', verifyToken, upload.single('image'), async (req, r
 
   try {
     const imagePath = req.file ? `/images/${req.file.filename}` : '';
-
+    console.log(req.file)
     const newRecipe = new Recipes({
       title,
       ingredients,
