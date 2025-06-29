@@ -596,9 +596,9 @@ router.post('/addnewrecipes', verifyToken, parser.single('image'), async (req, r
 
     res.status(201).json({ message: 'Recipe added successfully', data: newRecipe });
   } catch (error) {
-    console.error('Error adding recipe:', error);
-    res.status(500).json({ message: 'Internal Server Error' });
-  }
+  console.error('Failed to add recipe:', error.response?.data || error.message || error);
+}
+
 });
 
 module.exports = router;
