@@ -8,6 +8,8 @@ const Admin = require('../models/admin');
 const multer = require('multer');
 const path = require('path');
 
+const parser = require('../conf/cloudinaryConfig');
+
 // Configure multer storage
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -569,7 +571,7 @@ router.post('/passwordreset', verifyToken, async (req, res) => {
 
 
 // Addnewrecipe API
-router.post('/addnewrecipes', verifyToken, upload.single('image'), async (req, res) => {
+router.post('/addnewrecipes', verifyToken, parser.single('image'), upload.single('image'), async (req, res) => {
   const userId = req.user.id;
   const { title, ingredients, steps, cookingtime, difficultylevel } = req.body;
 
@@ -578,7 +580,7 @@ router.post('/addnewrecipes', verifyToken, upload.single('image'), async (req, r
   }
 
   try {
-    const imagePath = req.file ? `/images/${req.file.filename}` : '';
+    const imagePath = req.file.path; 
     console.log(req.file)
     const newRecipe = new Recipes({
       title,
@@ -600,3 +602,4 @@ router.post('/addnewrecipes', verifyToken, upload.single('image'), async (req, r
 });
 
 module.exports = router;
+
