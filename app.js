@@ -46,6 +46,13 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
+// Allow preflight requests for all routes
+app.options('*', cors({
+  origin: ['https://recipesharingapp.vercel.app', 'http://localhost:3000'],
+  credentials: true
+}));
+
+
 // Default title middleware
 app.use((req, res, next) => {
   res.locals.title = '';
