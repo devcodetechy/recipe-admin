@@ -10,22 +10,6 @@ const path = require('path');
 
 const parser = require('../conf/cloudinaryConfig');
 
-// Configure multer storage
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/images'); // Save in public/images folder
-  },
-  filename: function (req, file, cb) {
-    const uniqueName = Date.now() + '-' + file.originalname;
-    cb(null, uniqueName);
-  }
-});
-
-// Create multer instance
-const upload = multer({ storage });
-
-
-
 
 router.get('/createAdmin', (req, res) => {
 
@@ -580,6 +564,7 @@ router.post('/addnewrecipes', verifyToken, parser.single('image'), async (req, r
   }
 
   try {
+    console.log('req.file =', req.file);
     const imagePath = req.file.path; 
     console.log(req.file)
     const newRecipe = new Recipes({
@@ -596,8 +581,10 @@ router.post('/addnewrecipes', verifyToken, parser.single('image'), async (req, r
 
     res.status(201).json({ message: 'Recipe added successfully', data: newRecipe });
   } catch (error) {
-  console.error('Failed to add recipe:', error.response?.data || error.message || error);
-}
+      console.error('Error adding recipe:', error);  // Shows complete error info
+      res.status(500).json({ message: 'Internal Server Error', error: error.message });
+  }
+
 
 });
 
