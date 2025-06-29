@@ -571,7 +571,7 @@ router.post('/passwordreset', verifyToken, async (req, res) => {
 
 
 // Addnewrecipe API
-router.post('/addnewrecipes', verifyToken, parser.single('image'), upload.single('image'), async (req, res) => {
+router.post('/addnewrecipes', verifyToken, parser.single('image'), async (req, res) => {
   const userId = req.user.id;
   const { title, ingredients, steps, cookingtime, difficultylevel } = req.body;
 
